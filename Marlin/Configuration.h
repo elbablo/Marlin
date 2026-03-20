@@ -579,7 +579,7 @@
 #define TEMP_SENSOR_5 0
 #define TEMP_SENSOR_6 0
 #define TEMP_SENSOR_7 0
-#define TEMP_SENSOR_BED 0 //11
+#define TEMP_SENSOR_BED 7 //11
 #define TEMP_SENSOR_PROBE 0
 #define TEMP_SENSOR_CHAMBER 0
 #define TEMP_SENSOR_COOLER 0
@@ -796,7 +796,7 @@
  *
  * With this option disabled, bang-bang will be used. BED_LIMIT_SWITCHING enables hysteresis.
  */
-//#define PIDTEMPBED
+#define PIDTEMPBED
 
 #if ENABLED(PIDTEMPBED)
   //#define MIN_BED_POWER 0
@@ -1035,16 +1035,16 @@
   #define DELTA_DIAGONAL_ROD 215.0        // (mm)
 
   // Distance between bed and nozzle Z home position
-  #define DELTA_HEIGHT 203.96             // (mm) Get this value from G33 auto calibrate
+  #define DELTA_HEIGHT 205            // (mm) Get this value from G33 auto calibrate
 
-  #define DELTA_ENDSTOP_ADJ { 0.0, -1.012, -1.592 } // (mm) Get these values from G33 auto calibrate
+  #define DELTA_ENDSTOP_ADJ { 0, 0, 0} // (mm) Get these values from G33 auto calibrate
   // Horizontal distance bridged by diagonal push rods when effector is centered.
-  #define DELTA_RADIUS 106.25              // (mm) Get this value from G33 auto calibrate
+  #define DELTA_RADIUS 107              // (mm) Get this value from G33 auto calibrate
 
   // Trim adjustments for individual towers
   // tower angle corrections for X and Y tower / rotate XYZ so Z tower angle = 0
   // measured in degrees anticlockwise looking from above the printer
-  #define DELTA_TOWER_ANGLE_TRIM { -0.260, 0.203, 0.058 } // (mm) Get these values from G33 auto calibrate
+  #define DELTA_TOWER_ANGLE_TRIM { -0.167, 0.062, 0.105 } // (mm) Get these values from G33 auto calibrate
 
   // Delta radius and diagonal rod adjustments
   //#define DELTA_RADIUS_TRIM_TOWER       { 0.0, 0.0, 0.0 } // (mm)
@@ -1329,7 +1329,7 @@
  * Override with M201
  *                                      X, Y, Z [, I [, J [, K...]]], E0 [, E1[, E2...]]
  */
-#define DEFAULT_MAX_ACCELERATION      { 9000, 9000, 9000, 10000 }
+#define DEFAULT_MAX_ACCELERATION      { 9000, 9000, 9000, 1000 }
 
 //#define LIMITED_MAX_ACCEL_EDITING     // Limit edit via M201 or LCD to DEFAULT_MAX_ACCELERATION * 2
 #if ENABLED(LIMITED_MAX_ACCEL_EDITING)
